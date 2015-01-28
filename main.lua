@@ -95,7 +95,7 @@ myGroup:insert( myBox )
 local myGroup = display.newGroup()
 
 local topX = 150
-local topY = 200
+local topY = 230
 
 local myBox = display.newRect( topX, topY, SQUARE_SIZE, SQUARE_SIZE )
 myBox:setFillColor( 0, 1, 0, 0.8 )
@@ -118,7 +118,7 @@ myGroup:insert( myBox )
 local myGroup = display.newGroup()
 
 local topX = 30
-local topY = 370
+local topY = 400
 
 local myBox = display.newRect( topX, topY, SQUARE_SIZE, SQUARE_SIZE )
 myBox:setFillColor( 0.5, 0.5, 0, 0.8 )
@@ -140,7 +140,7 @@ myGroup:insert( myBox )
 local myGroup = display.newGroup()
 
 local topX = 190
-local topY = 370
+local topY = 400
 
 local myBox = display.newRect( topX + 2 * DELTA_SEPARATION, topY, SQUARE_SIZE, SQUARE_SIZE )
 myBox:setFillColor( 0.5, 0.2, 0.8, 0.8 )
@@ -156,4 +156,27 @@ myGroup:insert( myBox )
 
 myBox = display.newRect( topX, topY + DELTA_SEPARATION, SQUARE_SIZE, SQUARE_SIZE )
 myBox:setFillColor( 0.5, 0.2, 0.8, 0.8 )
+myGroup:insert( myBox )
+
+
+-- T
+local myGroup = display.newGroup()
+
+local topX = 170
+local topY = 170
+
+local myBox = display.newRect( topX + 2 * DELTA_SEPARATION, topY, SQUARE_SIZE, SQUARE_SIZE )
+myBox:setFillColor( 1, 0.5, 0, 0.8 )
+myGroup:insert( myBox )
+
+myBox = display.newRect( topX + DELTA_SEPARATION, topY, SQUARE_SIZE, SQUARE_SIZE )
+myBox:setFillColor( 1, 0.5, 0, 0.8 )
+myGroup:insert( myBox )
+
+myBox = display.newRect( topX + DELTA_SEPARATION, topY + DELTA_SEPARATION, SQUARE_SIZE, SQUARE_SIZE )
+myBox:setFillColor( 1, 0.5, 0, 0.8 )
+myGroup:insert( myBox )
+
+myBox = display.newRect( topX, topY, SQUARE_SIZE, SQUARE_SIZE )
+myBox:setFillColor( 1, 0.5, 0, 0.8 )
 myGroup:insert( myBox )
