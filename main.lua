@@ -90,3 +90,25 @@ myGroup:insert( myBox )
 myBox = display.newRect( topX + DELTA_SEPARATION, topY + DELTA_SEPARATION , SQUARE_SIZE, SQUARE_SIZE )
 myBox:setFillColor( 0, 1, 1, 0.8 )
 myGroup:insert( myBox )
+
+-- Line
+local myGroup = display.newGroup()
+
+local topX = 150
+local topY = 200
+
+local myBox = display.newRect( topX, topY, SQUARE_SIZE, SQUARE_SIZE )
+myBox:setFillColor( 0, 1, 0, 0.8 )
+myGroup:insert( myBox )
+
+myBox = display.newRect( topX, topY + DELTA_SEPARATION, SQUARE_SIZE, SQUARE_SIZE )
+myBox:setFillColor( 0, 1, 0, 0.8 )
+myGroup:insert( myBox )
+
+myBox = display.newRect( topX , topY + 2 * DELTA_SEPARATION, SQUARE_SIZE, SQUARE_SIZE )
+myBox:setFillColor( 0, 1, 0, 0.8 )
+myGroup:insert( myBox )
+
+myBox = display.newRect( topX , topY + 3 * DELTA_SEPARATION, SQUARE_SIZE, SQUARE_SIZE )
+myBox:setFillColor( 0, 1, 0, 0.8 )
+myGroup:insert( myBox )
