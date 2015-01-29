@@ -60,7 +60,7 @@ local function createInverseL(x, y, r, g, b, a)
   subGroup = addRect(subGroup, topX, topY, r, g, b, a)
   subGroup = addRect(subGroup, topX + DELTA_SEPARATION, topY, r, g, b, a)
   subGroup = addRect(subGroup, topX, topY + DELTA_SEPARATION, r, g, b, a)
-  subGroup = addRect(subGroup, topX + DELTA_SEPARATION, topY + DELTA_SEPARATION, r, g, b, a)
+  subGroup = addRect(subGroup, topX, topY + 2 * DELTA_SEPARATION, r, g, b, a)
 
   return inverseLGroup
 end
