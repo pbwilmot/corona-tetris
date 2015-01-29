@@ -35,160 +35,94 @@ local function createShapeGroups(x, y)
   return parentGroup, subGroup
 end
 
+local function addRect(group, x, y, r, g, b, a)
+  local myBox = display.newRect(x, y, SQUARE_SIZE, SQUARE_SIZE)
+  myBox:setFillColor(r, g, b, a)
+  group:insert(myBox)
+  return group
+end
+
 local function createLine(x, y, r, g, b, a)
-  local parentGroup, subGroup = createShapeGroups(x, y)
+  local lineGroup, subGroup = createShapeGroups(x, y)
 
-  local myBox = display.newRect(topX, topY, SQUARE_SIZE, SQUARE_SIZE)
-  myBox:setFillColor(r, g, b, a)
-  subGroup:insert(myBox)
+  subGroup = addRect(subGroup, topX, topY, r, g, b, a)
+  subGroup = addRect(subGroup, topX, topY + DELTA_SEPARATION, r, g, b, a)
+  subGroup = addRect(subGroup, topX, topY + 2 * DELTA_SEPARATION, r, g, b, a)
+  subGroup = addRect(subGroup, topX, topY + 3 * DELTA_SEPARATION, r, g, b, a)
 
-  myBox = display.newRect(topX, topY + DELTA_SEPARATION, SQUARE_SIZE, SQUARE_SIZE)
-  myBox:setFillColor(r, g, b, a)
-  subGroup:insert(myBox)
-
-  myBox = display.newRect(topX , topY + 2 * DELTA_SEPARATION, SQUARE_SIZE, SQUARE_SIZE)
-  myBox:setFillColor(r, g, b, a)
-  subGroup:insert(myBox)
-
-  myBox = display.newRect(topX , topY + 3 * DELTA_SEPARATION, SQUARE_SIZE, SQUARE_SIZE)
-  myBox:setFillColor(r, g, b, a)
-  subGroup:insert(myBox)
   return lineGroup
 end
 
 -- Inverse L
 local function createInverseL(x, y, r, g, b, a)
-  local parentGroup, myGroup = createShapeGroups(x, y)
+  local inverseLGroup, subGroup = createShapeGroups(x, y)
 
-  local myBox = display.newRect(topX, topY, SQUARE_SIZE, SQUARE_SIZE)
-  myBox:setFillColor(r, g, b, a)
-  myGroup:insert(myBox)
+  subGroup = addRect(subGroup, topX, topY, r, g, b, a)
+  subGroup = addRect(subGroup, topX + DELTA_SEPARATION, topY, r, g, b, a)
+  subGroup = addRect(subGroup, topX, topY + DELTA_SEPARATION, r, g, b, a)
+  subGroup = addRect(subGroup, topX + DELTA_SEPARATION, topY + DELTA_SEPARATION, r, g, b, a)
 
-  myBox = display.newRect(topX + DELTA_SEPARATION, topY, SQUARE_SIZE, SQUARE_SIZE)
-  myBox:setFillColor(r, g, b, a)
-  myGroup:insert(myBox)
-
-  myBox = display.newRect(topX, topY + DELTA_SEPARATION, SQUARE_SIZE, SQUARE_SIZE)
-  myBox:setFillColor(r, g, b, a)
-  myGroup:insert(myBox)
-
-  myBox = display.newRect(topX, topY + 2 * (DELTA_SEPARATION), SQUARE_SIZE, SQUARE_SIZE)
-  myBox:setFillColor(r, g, b, a)
-  myGroup:insert(myBox)
-
-  return parentGroup
+  return inverseLGroup
 end
 
 -- L
 local function createL(x, y, r, g, b, a)
-  local parentGroup, myGroup = createShapeGroups(x, y)
+  local lGroup, subGroup = createShapeGroups(x, y)
 
-  local myBox = display.newRect(topX, topY, SQUARE_SIZE, SQUARE_SIZE)
-  myBox:setFillColor(r, g, b, a)
-  myGroup:insert(myBox)
+  subGroup = addRect(subGroup, topX, topY, r, g, b, a)
+  subGroup = addRect(subGroup, topX + DELTA_SEPARATION, topY, r, g, b, a)
+  subGroup = addRect(subGroup, topX + DELTA_SEPARATION, topY + DELTA_SEPARATION, r, g, b, a)
+  subGroup = addRect(subGroup, topX + DELTA_SEPARATION, topY + 2 * DELTA_SEPARATION, r, g, b, a)
 
-  myBox = display.newRect(topX + DELTA_SEPARATION, topY, SQUARE_SIZE, SQUARE_SIZE)
-  myBox:setFillColor(r, g, b, a)
-  myGroup:insert(myBox)
-
-  myBox = display.newRect(topX + DELTA_SEPARATION, topY + DELTA_SEPARATION, SQUARE_SIZE, SQUARE_SIZE)
-  myBox:setFillColor(r, g, b, a)
-  myGroup:insert(myBox)
-
-  myBox = display.newRect(topX + DELTA_SEPARATION, topY + 2 * (DELTA_SEPARATION), SQUARE_SIZE, SQUARE_SIZE)
-  myBox:setFillColor(r, g, b, a)
-  myGroup:insert(myBox)
-
-  return parentGroup
+  return lGroup
 end
 
 -- BOX
 local function createBox(x, y, r, g, b, a)
-  local parentGroup, myGroup = createShapeGroups(x, y)
+  local boxGroup, subGroup = createShapeGroups(x, y)
 
-  local myBox = display.newRect(topX, topY, SQUARE_SIZE, SQUARE_SIZE)
-  myBox:setFillColor(r, g, b, a)
-  myGroup:insert(myBox)
+  subGroup = addRect(subGroup, topX, topY, r, g, b, a)
+  subGroup = addRect(subGroup, topX + DELTA_SEPARATION, topY, r, g, b, a)
+  subGroup = addRect(subGroup, topX, topY + DELTA_SEPARATION, r, g, b, a)
+  subGroup = addRect(subGroup, topX + DELTA_SEPARATION, topY + DELTA_SEPARATION, r, g, b, a)
 
-  myBox = display.newRect(topX + DELTA_SEPARATION, topY, SQUARE_SIZE, SQUARE_SIZE)
-  myBox:setFillColor(r, g, b, a)
-  myGroup:insert(myBox)
-
-  myBox = display.newRect(topX , topY + DELTA_SEPARATION, SQUARE_SIZE, SQUARE_SIZE)
-  myBox:setFillColor(r, g, b, a)
-  myGroup:insert(myBox)
-
-  myBox = display.newRect(topX + DELTA_SEPARATION, topY + DELTA_SEPARATION , SQUARE_SIZE, SQUARE_SIZE)
-  myBox:setFillColor(r, g, b, a)
-  myGroup:insert(myBox)
-
-  return parentGroup
+  return boxGroup
 end
 
 -- Z
 local function createZ(x, y, r, g, b, a)
-  local parentGroup, myGroup = createShapeGroups(x, y)
+  local zGroup, subGroup = createShapeGroups(x, y)
 
-  local myBox = display.newRect(topX, topY, SQUARE_SIZE, SQUARE_SIZE)
-  myBox:setFillColor(r, g, b, a)
-  myGroup:insert(myBox)
+  subGroup = addRect(subGroup, topX, topY, r, g, b, a)
+  subGroup = addRect(subGroup, topX + DELTA_SEPARATION, topY, r, g, b, a)
+  subGroup = addRect(subGroup, topX + DELTA_SEPARATION, topY + DELTA_SEPARATION, r, g, b, a)
+  subGroup = addRect(subGroup, topX + 2 * DELTA_SEPARATION, topY + DELTA_SEPARATION, r, g, b, a)
 
-  myBox = display.newRect(topX + DELTA_SEPARATION, topY, SQUARE_SIZE, SQUARE_SIZE)
-  myBox:setFillColor(r, g, b, a)
-  myGroup:insert(myBox)
-
-  myBox = display.newRect(topX + DELTA_SEPARATION, topY + DELTA_SEPARATION, SQUARE_SIZE, SQUARE_SIZE)
-  myBox:setFillColor(r, g, b, a)
-  myGroup:insert(myBox)
-
-  myBox = display.newRect(topX + 2 * DELTA_SEPARATION, topY + DELTA_SEPARATION, SQUARE_SIZE, SQUARE_SIZE)
-  myBox:setFillColor(r, g, b, a)
-  myGroup:insert(myBox)
-  return parentGroup
+  return zGroup
 end
 
 -- S
 local function createS(x, y, r, g, b, a)
-  local parentGroup, myGroup = createShapeGroups(x, y)
+  local sGroup, subGroup = createShapeGroups(x, y)
 
-  local myBox = display.newRect(topX + 2 * DELTA_SEPARATION, topY, SQUARE_SIZE, SQUARE_SIZE)
-  myBox:setFillColor(r, g, b, a)
-  myGroup:insert(myBox)
+  subGroup = addRect(subGroup, topX + 2 * DELTA_SEPARATION, topY, r, g, b, a)
+  subGroup = addRect(subGroup, topX + DELTA_SEPARATION, topY, r, g, b, a)
+  subGroup = addRect(subGroup, topX + DELTA_SEPARATION, topY + DELTA_SEPARATION, r, g, b, a)
+  subGroup = addRect(subGroup, topX, topY + DELTA_SEPARATION, r, g, b, a)
 
-  myBox = display.newRect(topX + DELTA_SEPARATION, topY, SQUARE_SIZE, SQUARE_SIZE)
-  myBox:setFillColor(r, g, b, a)
-  myGroup:insert(myBox)
-
-  myBox = display.newRect(topX + DELTA_SEPARATION, topY + DELTA_SEPARATION, SQUARE_SIZE, SQUARE_SIZE)
-  myBox:setFillColor(r, g, b, a)
-  myGroup:insert(myBox)
-
-  myBox = display.newRect(topX, topY + DELTA_SEPARATION, SQUARE_SIZE, SQUARE_SIZE)
-  myBox:setFillColor(r, g, b, a)
-  myGroup:insert(myBox)
-  return parentGroup
+  return sGroup
 end
 
 -- T
 local function createT(x, y, r, g, b, a)
-  local parentGroup, myGroup = createShapeGroups(x, y)
+  local tGroup, subGroup = createShapeGroups(x, y)
 
-  local myBox = display.newRect( topX + 2 * DELTA_SEPARATION, topY, SQUARE_SIZE, SQUARE_SIZE )
-  myBox:setFillColor(r, g, b, a)
-  myGroup:insert( myBox )
+  subGroup = addRect(subGroup, topX, topY, r, g, b, a)
+  subGroup = addRect(subGroup, topX + DELTA_SEPARATION, topY, r, g, b, a)
+  subGroup = addRect(subGroup, topX + 2 * DELTA_SEPARATION, topY, r, g, b, a)
+  subGroup = addRect(subGroup, topX + DELTA_SEPARATION, topY + DELTA_SEPARATION, r, g, b, a)
 
-  myBox = display.newRect( topX + DELTA_SEPARATION, topY, SQUARE_SIZE, SQUARE_SIZE )
-  myBox:setFillColor(r, g, b, a)
-  myGroup:insert( myBox )
-
-  myBox = display.newRect( topX + DELTA_SEPARATION, topY + DELTA_SEPARATION, SQUARE_SIZE, SQUARE_SIZE )
-  myBox:setFillColor(r, g, b, a)
-  myGroup:insert( myBox )
-
-  myBox = display.newRect( topX, topY, SQUARE_SIZE, SQUARE_SIZE )
-  myBox:setFillColor(r, g, b, a)
-  myGroup:insert( myBox )
-  return parentGroup
+  return tGroup
 end
 
 local t = createT(50, 350, 1, 0.5, 0, 0.8)
