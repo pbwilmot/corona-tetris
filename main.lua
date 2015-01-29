@@ -187,6 +187,7 @@ local function createT(x, y, r, g, b, a)
 
   myBox = display.newRect( topX, topY, SQUARE_SIZE, SQUARE_SIZE )
   myBox:setFillColor(r, g, b, a)
+  myGroup:insert( myBox )
   return parentGroup
 end
 
